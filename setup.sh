@@ -3,16 +3,17 @@
 curl -o uninstall.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh
 chmod +x uninstall.sh
 ./uninstall.sh -f -q
-rm uninstall.sh
+rm
 # Remove any remaining traces of the prior Homebrew installation.
 sudo rm -rf /usr/local/{Cellar,Homebrew,bin,etc,share,var}
 # Install Homebrew freshly.
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Run the Homebrew doctor as a sanity check.
+brew doctor
+read -p "Press ENTER to continue the installation if and only if the doctor passes with \"Your system is ready to brew.\"" -n1 -s
 # List installed stuff for confirmation.
 brew list
-echo "Press ENTER to continue the installation if and only if there are no installed packages."
-read -s -N 1 -t 1 key
-if [[ $key ]]
+read -p "Press ENTER to continue the installation if and only if there are no installed packages." -n1 -s
 # Clone the nhubbard/homebrew-gu repository from GitHub.
 git clone https://github.com/nhubbard/homebrew-gu
 # Enter the directory.
