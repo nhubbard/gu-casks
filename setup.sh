@@ -1,12 +1,16 @@
 #!/bin/zsh
+# Check for Homebrew.
+which -s brew
 # Uninstall any existing Homebrew installation.
-curl -o uninstall.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh
-chmod +x uninstall.sh
-./uninstall.sh -f -q
-rm
-# Remove any remaining traces of the prior Homebrew installation.
-sudo rm -rf /usr/local/{Cellar,Homebrew,bin,etc,share,var}
-# Install Homebrew freshly.
+if [[ $? != 0 ]] ; then
+	curl -o uninstall.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh
+	chmod +x uninstall.sh
+	./uninstall.sh -f -q
+	rm uninstall.sh
+	# Remove any remaining traces of the prior Homebrew installation.
+	sudo rm -rf /usr/local/{Cellar,Homebrew,bin,etc,share,var}
+fi
+# Install Homebrew fresh.
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # Run the Homebrew doctor as a sanity check.
 brew doctor
