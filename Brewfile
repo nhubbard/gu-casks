@@ -1,5 +1,7 @@
 require "socket"
 
+brew "mas"
+
 # Cask contains binary apps; Cask Versions contains a dependency for
 # Visual Studio for Mac.
 tap "homebrew/cask"
@@ -30,3 +32,6 @@ if Socket.gethostname == "z336dais.local"
 	cask "justinmind"
 	cask "huddly"
 end
+
+# Install apps from the App Store, as necessary.
+mas "Xcode", id: 497799835
