@@ -14,10 +14,10 @@ fi
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # Run the Homebrew doctor as a sanity check.
 brew doctor
-read -p "Press ENTER to continue the installation if and only if the doctor passes with \"Your system is ready to brew.\"" -n1 -s
+read -p "Press ENTER to continue the installation if and only if the doctor passes with \"Your system is ready to brew.\"\n" -n1 -s
 # List installed stuff for confirmation.
 brew list
-read -p "Press ENTER to continue the installation if and only if there are no installed packages." -n1 -s
+read -p "Press ENTER to continue the installation if and only if there are no installed packages.\n" -n1 -s
 # Clone the nhubbard/homebrew-gu repository from GitHub.
 git clone https://github.com/nhubbard/homebrew-gu
 # Enter the directory.
