@@ -1,8 +1,9 @@
 #!/bin/zsh
 # Uninstall any existing Homebrew installation.
-wget https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh
+curl -o uninstall.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh
 chmod +x uninstall.sh
 ./uninstall.sh -f -q
+rm uninstall.sh
 # Remove any remaining traces of the prior Homebrew installation.
 sudo rm -rf /usr/local/{Cellar,Homebrew,bin,etc,share,var}
 # Install Homebrew freshly.
