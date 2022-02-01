@@ -1,8 +1,6 @@
 #!/bin/zsh
-# Check for Homebrew.
-which -s brew
 # Uninstall any existing Homebrew installation.
-if [[ $? != 0 ]] ; then
+if ! command -v brew &> /dev/null; then
 	curl -o uninstall.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh
 	chmod +x uninstall.sh
 	./uninstall.sh -f -q
