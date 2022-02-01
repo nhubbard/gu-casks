@@ -16,11 +16,5 @@ read -p "Press ENTER to continue the installation if and only if the doctor pass
 # List installed stuff for confirmation.
 brew list
 read -p "Press ENTER to continue the installation if and only if there are no installed packages.\n" -n1 -s
-# Clone the nhubbard/homebrew-gu repository from GitHub.
-git clone https://github.com/nhubbard/homebrew-gu
-# Enter the directory.
-pushd ~/homebrew-gu
 # Run `brew bundle`.
 brew bundle
-# Pop the stack.
-popd
